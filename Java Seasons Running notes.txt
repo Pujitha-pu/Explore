@@ -1,0 +1,1696 @@
+****************************************
+Java Season - 1
+****************************************
+--------------------------------------------------
+Day 1 : 7th July  - Monday
+--------------------------------------------------
+
+Features of Java : 
+
+1) Simple 
+2) OO Object Oriented Programming 
+3) Robust (Strong) 
+4) Secured 
+5) Platform Indepedent
+6) Architectural Neutral 
+7) Portable 
+
+---------------------------------
+jdk download and installation
+---------------------------------
+
+Download :
+
+
+https://www.oracle.com/java/technologies/downloads/
+
+JAVA 8 / 11 / 17 , now prefer 17 
+
+download jdk-17.0.15_windows-x64_bin.exe
+
+https://signon.oracle.com/signin
+
+
+create an account 
+
+https://profile.oracle.com/myprofile/account/create-account.jspx
+
+
+Install ???
+
+just double clik on .exe file 
+
+click next -> next -> close 
+
+
+how to check java is installed ?
+
+In below location 
+
+C:\Program Files\Java\jdk-17 
+
+if you find files like bin , conf , lib etc .. that means java is installed 
+
+
+
+--------------------------------------------------
+Day 2 : 8th July  - Tuesday
+--------------------------------------------------
+
+After Installation 
+
+go to Environment Variables --> under "System Variables" section --> select "path"
+and click on edit 
+
+Now remove the first option "C:\Program Files\Common Files\Oracle\Java\javapath"
+
+by using "Delete" button then click "Ok" and click "Ok" and click "Ok"
+
+
+
+*****************
+how to configure 
+java / jdk 
+*****************
+
+what do you mean by configuration ?
+
+configuration means telling OS where any software is present
+
+Step 1: 
+go to Environment Variables --> "Under user variables for accoutname" 
+click on "New" --> 
+
+Variable Name : JAVA_HOME
+Variable Value : C:\Program Files\Java\jdk-17
+
+Then click "Ok"
+
+Step 2:
+Under System  variables --> Select path and click on "Edit"
+--> click on "New" --> path the jdk path till bin folder
+
+Click ok --> Click ok --> Click ok
+
+???????????????????
+how to check
+java is configured ?
+????????????????????
+
+go to cmd : 
+
+C:\Users\Riyaz>java -version
+java version "17.0.15" 2025-04-15 LTS
+Java(TM) SE Runtime Environment (build 17.0.15+9-LTS-241)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.15+9-LTS-241, mixed mode, sharing)
+
+
+-----------------------------------
+JDK folders
+-----------------------------------
+
+										jdk
+							
+							
+							
+				lib 				bin	/tools				jre(now-a-days) / jmods 
+				
+				
+lib : library  / predefined stuff --> APIs (.jar) 
+									   |
+								Collections of packages 
+									   |
+								------------------
+								|                  |
+							Classes				Interfaces
+							   |					|
+					Variables    Methods 	  Fields		Abstract Methods 
+											Constants
+
+bin : binaries (executables) 	
+
+javac :  it will compile a java file and create a .class file  (this is Byte Code)
+
+javac filename.java 
+
+java : this will exucte a .class file 
+
+java filename 
+
+-------------------------------------
+JRE (Java Runtime Environment ) 
+
+- pre execution of code is done here
+- collection of info about your current working machine 
+- .class file (Byte Code) to local understandable format 
+- implementation of tasks for JVM 
+
+
+												JVM (Java Virtual Machine) - Abstract machine 
+												 
+												 |
+												 
+						CLSS				EE						GC 
+						Class Loader		Execution				Garbage
+						Subsystem			Engine					Collector
+												|
+								Interpreter          JIT Compiler
+								                     (Just In time) 
+--------------------------------------------------
+Day 3 : 9th July  - Wednesday 
+--------------------------------------------------													 
+													 
+
+CLSS : Class Loader Subsystem 
+
+-> Loading .class files or code 
+
+-> Linking  
+
+-> Intialization 
+
+EE: Execution Engine 
+			 Byte Code -> Machine Understandable format 
+Interpreter : BC -> .exe 
+JIT Compiler : Just In time Compiler (looping )
+ 
+ GC :Garbage collector 
+ 
+ Mark  : identify 
+ Sweep : cleans or deallocate 
+ 
+ System.gc();
+ Runtime.gc();
+
+=============================================
+JAVA MEMORY BLOCKS
+=============================================
+1) Class Area / Method Area 
+- .class file (Program)
+- static variables
+- static methods 
+- static blocks
+
+2) Heap Area (Dynamic Memory allocation)
+
+- objects 
+- Arrays 
+
+
+3) Java Stack Area 
+
+- Local declaration or Local Variables
+- Expressions 
+- current running logic / code (loops)
+
+4) String Constant Pool Area (SCPA)
+only String Literals 
+     String str="FLM";
+
+============================================
+Structure of Java Program
+============================================
+i) Documentation Section
+ii) package Section
+iii) import section
+iv) Class or Interface Section 
+
+
+i) Documentation Section
+
+Documentation is also called as Comments sections 
+
+2 types of comments 
+
+1) Single line comment // 
+2) Multiline comment  
+/*
+kjhkjhkjh
+yttuytuyt
+mnvnvnbvbn
+*/
+
+ii) package Section -> meant for logical grouping 
+
+package means folder 
+
+syntax :
+
+package packagename;
+
+package section or statement will be the first statement in program 
+
+multilevel package
+
+package packagename1.packagename2;
+
+iii) import section
+
+import packagename.*;   //not prefered 
+
+import packagename.className; //more readable and prefered 
+
+java.lang is default package, no need to include import statement 
+
+--------------------------------------------------
+Day 4 : 10th July  - Thursday 
+--------------------------------------------------
+
+iv) Class or Interface Section 	
+
+syntax : 
+
+access-specifier access-modifier class ClassName 
+{
+// variables
+// methods 
+
+
+}
+
+access-specifier/access-label / scope label : public / private / protected / <default> or unspecified 
+											 
+access-modifier : it tells behaviour
+
+static / final / abstarct / transient / volatile / <default> or unspecified 
+
+											
+main method : 
+
+access-specifier  access-modifier  return-type   methodname 
+public            static            void         main(String[] args)
+{
+
+}
+
+
+D:\FLM2ndJune>java Hello
+Error: Main method not found in class Hello, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+----------------------------------------
+Naming Conventions in Java
+----------------------------------------
+
+							Collections of packages 
+									   |
+								------------------
+								|                  |
+							Classes				Interfaces
+							   |					|
+					Variables    Methods 	  Fields		Abstract Methods 
+											Constants
+						
+									   
+
+packages : 
+
+all lower case 
+
+e.g 
+
+java.util
+java.io
+org.openqa.selenium
+regression 
+
+
+Classes and Interfaces :  TitleCase  (e.g RamaKrishna)
+
+Hello 
+
+Sample 
+
+Scanner 
+
+GetPropertyAction
+
+WebDriver
+
+
+Variables and methods / Abstract Methods : CamelCase 
+
+x
+theProp
+defaultVal
+
+costOfItem
+
+println(
+nextInt(
+
+Fields / constants : All Upper Case 
+
+PI=3.14;
+
+MAX_WITHDRAW_LIMIT=10000;
+			
+--------------------------------------------------
+Day 5: 10th July  - Friday 
+--------------------------------------------------
+IDE : Integrated Development Environment 
+
+Eclipse / IntelliJ Indea / VScode / Netbeans etc ..
+
+Eclipse : 
+
+-------------------------------
+Download and Installation
+-------------------------------
+
+https://www.eclipse.org/downloads/
+
+click on "Download Packages"
+
+you will see latest version "Eclipse IDE 2025-06 R Packages" ==> but don't download this 
+
+try to download 2024-03  , this is stable for Java 17 and Selenium >= 4.20
+
+in right hand side you will find "More Downloads",under that you can find "Eclipse 2024-03 (4.31)"
+
+just click on "Eclipse 2024-03 (4.31)"
+
+unde "Eclipse IDE for Enterprise Java and Web Developers"  click on "Windows | x86_64"
+
+you will a zip file getting downloaded 
+
+then unzip it 
+
+the inside "eclipse" folder you will see "eclipse" application means .exe file
+
+just double click it 
+
+"C:\Users\Riyaz\eclipse-workspace"
+
+????????????????????????????????????????????????
+Assignment - 1
+????????????????????????????????????????????????
+Complete Eclipse Installation
+create a Java Project 
+and send screenshot to below email id 
+flmtechteam.testing@gmail.com
+??????????????????????????????????????????????????
+
+
+=================================================
+Variables in JAVA
+==================================================
+
+-> reference given to a memory block 
+
+-> usage of variable : to store / hold a value , for re-use 
+
+-> simplifies the expressions 
+-> to store and recall anywhere in program
+
+syntax : 
+
+access-specifier access-modifier data-type variableName = value ;  declaration and assignment 
+
+access-specifier access-modifier data-type variableName; declaration
+
+
+SrikanthSoma - title case - pascal case 
+
+srikanthKumarSoma - camel case 
+
+
+--------------------------------------------------
+Day 6: 14th July  - Monday 
+--------------------------------------------------
+
+										Variables
+										
+										
+				Local 						Instance 						Static 
+
+
+1. Def ?
+2. when memory is getting allocated ?
+3. where memory is allocated ?
+4. what is the calling style ?
+5. what is the scope or life time ?
+
+				
+Local Variable : 
+
+
+1. Def ?
+A variable which is declared inside a method 	
+
+2. when memory is getting allocated ?
+Ans : when the method is called or refered 
+
+
+3. where memory is allocated ?
+Ans : Java Stack Area 
+
+4. what is the calling style ?
+Ans : Variable name itself
+
+5. what is the scope or life time ?
+Ans : till the end of method 
+
+Note : It's the duty of developer/programmer to initialize local variables
+
+The local variable x may not have been initialized
+
+
+Instance Variables : 
+
+									
+1. Def ?
+Ans : A variable which is declared inside a class but outside of method
+
+
+2. when memory is getting allocated ?
+Ans : only when you create an instance or object to that class 
+syntax to create object : 
+ClassName objectName=new ClassName(); 
+
+3. where memory is allocated ?
+Ans : Heap Area 
+
+
+4. what is the calling style ?
+Ans : objectName.variableName;
+
+5. what is the scope or life time ?
+Ans: till the last usage of object in program
+
+Static Variables:
+
+1. Def ?
+ans : A variable which is declared inside a class but outside of method having keyword
+
+2. when memory is getting allocated ?
+Ans : during .class file loading 
+
+
+3. where memory is allocated ?
+Ans : CLass Area /Method Area 
+
+4. what is the calling style ?
+Ans : ClassName.variableName
+
+
+5. what is the scope or life time ?
+Ans : till the end of program 
+
+Note : when to choose static 
+if you have some value that is common and can be shared across 
+
+--------------------------------------------------
+Day 7: 16th July  - Wednesday 
+--------------------------------------------------
+
+
+====================================
+Data Types in Java 
+====================================
+
+									
+i=10 ==> Not a typed lang (e.g Python , REXX etc ..)
+
+int i=10; ==> Strongly typed language (e.g Java)
+
+										Datatypes
+							
+							
+				primitive datatypes(8)					non-primitive datatypes (referenced or user defined)
+
+		
+		boolean 			Numeric 							Strings ,Arrays , Object etc ..
+		
+						char		Integral
+						
+						
+								integer			floating point
+		---------------------------------------------------------------						
+								
+		boolean			char 	byte short int long 	float    double			
+										
+										
+										
+Type mismatch: cannot convert from int to byte
+
+Type mismatch: cannot convert from int to short
+
+The literal 2147483648 of type int is out of range
+
+
+--------------------------------------------------
+Day 8: 18th July  - Friday  
+--------------------------------------------------
+
+
+Methods : 
+
+- set of instructions or code 
+- to perform a specific task 
+
+- reusability 
+- code clarity
+- avoids code redundancy 
+- length of code reduces 
+- easy debugging of program 
+
+syntax :
+
+access-specifier access-modifier return-type methodName(arguments)
+{
+//body of method 
+local declarations;
+statements;
+return value;
+}
+
+Note : for return-type void there is no need of return statement 
+
+									
+									
+													methods 
+									
+								Instance/Non-static												Static 
+
+
+1. Def ?					without static keyword 							          method with static keyword							
+							(<default>/final/ abstract / transient/volatile etc )
+
+2. when memory ?			while creation of objects									.class file loading 
+
+3. memory is allocated ?    Heap Area													class Area / Method Area
+
+
+4. calling style ?          objectName.methodName										ClassName.methodName
+
+
+5. scope or life time ?    till the last usage of object 							   till the end of program
+					
+									
+									
+Scanner : java.util
+
+next():String 
+
+
+gopichandkowtarapu@gmail.com
+
+Newpass123369
+
+
+https://github.com/flm2ndjune/javaseasons
+
+
+--------------------------------------------------
+Day 9: 19th July  - Saturday  
+--------------------------------------------------		
+
+						
+why should we go for methods ?
+
+for business logic implementation
+
+
+method syntax :
+
+access-specifier access-modifier return-type methodName(arguments)
+{
+//body of method 
+local declarations;
+statements;
+return value;
+}
+									
+3 points 
+
+i) what arguments the method need or parameters to feed 
+ii) what is the return-type or whats does the method returns you 
+iii) what does this method overall do 
+
+Scanner :
+
+next():String	
+println("name"):void 	
+after(Date):boolean 
+clear():void 
+	
+
+based on return-type and arguments methods can be under 4 models 
+
+1) No return-type and no arguments
+clear():void 
+2) No return-type and arguments
+println("name"):void	
+3) return-type and no arguments
+next():String
+4) return-type and arguments
+after(Date):boolean 
+				
+
+????????????????????????????????????????????????
+Assignment - 2
+????????????????????????????????????????????????
+Create a Class Clac2 
+and write Natsum logic using 4 models of methods 
+all methods should be static 
+
+and send screenshot to below email id 
+flmtechteam.testing@gmail.com
+??????????????????????????????????????????????????
+									
+
+--------------------------------------------------
+Day 10: 21st July  - Monday   
+--------------------------------------------------
+
+POP - Procedure Oriented Programming 
+
+OOP - Object Oriented Programming
+
+
+
+
+-> "Simula" first OOP 
+-> "Small Talk" is First Truely OOP 
+
+1)Object
+2)Class
+3)Encapsulation
+4)Polymorphism
+5)Inheritance
+6)Abstraction
+
+Object : is anything that exists 
+
+In Java, an object is an instance of a class that represents a real-world entity
+
+3 characteristics for object:
+
+
+state : represents data or attributes of an object 
+
+variables 
+
+Behaviour : represents the operations/tasks of an object 
+
+methods 
+
+Identity : a unique ID used by JVM to identify object 
+
+Marker : (state /variables : shape , length , color etc ..)
+		 (behaviour / methods :  writing on biard , marking something on parcel etc..)
+		 
+Dog : (state /variables : gender , breed , color etc ..)
+		 (behaviour / methods :  eating , barking sleep etc..)
+		 
+AccountNumber : (state /variables : length of digits)
+		 (behaviour / methods :  funds transfer, account statements etc..)
+		 
+Class : 
+
+a logical entity
+
+is a Blueprint/template  from which you can create object 
+===========================
+Object creation techniques 
+===========================
+1) using new operator 
+
+ClassName objectName=new ClassName();
+
+2) using Static Factory Method (SFM)
+
+ClassName objectName=ClassName.methodName();
+
+class By
+{
+
+public static By xpath(String)
+{
+----
+----
+return obj;
+
+}
+}
+
+By obj=By.xpath("abc");
+
+3) using Non-static Factory method 
+
+ClassName1 object1=new ClassName1();
+ClassName2 object2=object1.methodName();
+
+Workbook obj1=new Workbook();
+
+Sheet  obj2=obj1.getSheet();
+
+4) using cloning 
+
+ClassName object1=new ClassName();
+
+ClassName object2=object1.clone();
+
+
+5) using Literals 
+
+ClassName object= value ;
+
+e.g String str="FLM";
+    Integer i=100;
+	
+6) using deserialization
+
+no syntax 
+
+implicit operation (jvm follows this)
+
+
+
+--------------------------------------------------
+Day 11: 22nd July  - Tuesday   
+--------------------------------------------------	
+
+OOPs techniques or concepts 
+- object 
+- Class
+- Encapsulation
+- Polymorphism
+- Inheritance
+- Abstraction 
+
+Encapsulation : --> security 
+
+Encapsulation in Java is a mechanism of wrapping the data (variables)
+ and code acting on the data (methods) together as a single unit.
+ 
+ every class is encapsulated 
+ 
+ Encapsulation = Data hiding + Abstraction 
+ 
+ Data Hiding :
+ 
+ tightty encapsulation using private keyword for variables 
+ 
+ 
+ 
+ 
+ The field Bank.balance is not visible
+ 
+--------------------------------------------------
+Day 12: 24th July  - Thursday   
+--------------------------------------------------	
+what is the need of this keyword ?
+
+when we have local variables same as instance variables
+local variables will dominate so to avoid this we will use "this"
+this : is a keyword cum operator
+which will replace current calling object reference 
+
+
+PrintStream :
+
+print(): this will print and cursor remains in same line 
+
+* * * * *
+* * * *
+* * *
+* *
+* 
+
+	
+		
+
+
+println():this will print and cursor will move to next 
+
+
+printf(): this will give output as per string format but cursor remains in same line 
+9 2 10
+09:02:10
+
+ public PrintStream printf(String format, Object ... args)
+ public PrintStream format(String format, Object ... args)
+
+format():same as printf 
+
+---------------------------------------------------------------------------
+Polymorphism (Felxibility)
+---------------------------------------------------------------------------
+Poly - many
+morphs - forms 
+
+The method add(int, int) in the type Sum is not applicable for the arguments (double, double)
+
+
+The method add(int, int) in the type Sum is not applicable for the arguments (long, long)
+
+The method add(int, int) in the type Sum is not applicable for the arguments (int, int, int)
+
+ 
+--------------------------------------------------
+Day 12: 24th July  - Thursday   
+--------------------------------------------------	
+
+Polymorphism  --> flexibity 
+
+one method is available in many forms / formats
+                                bodies or logics
+								
+								
+								Polymorphism
+								
+								
+					
+					static 	                    dynamic 
+					 or							  or
+					compile time                runtime 
+					  or 		                  or
+					early binding               late binding 
+					
+			-> method overloading                 -> method overriding (this will be discussed after inheritance)
+            -> operator overloading(java doesn't support)			
+					
+					
+					
+								
+Note : binding means linking caller and called method 								
+								
+								
+method overloading : 
+
+
+method signature : method name + arguments
+
+In method overloading , in same class we will have same method names with different signatures
+
+add(double, double)
+add(int, int)
+add(int, int, int)
+add(long, long)
+
+
+method overloading --> showing variance in no of arguments 
+                   --> difference in data types 
+				   --> change in order of arguments (few cases it won't work so we don't prefer)
+				   
+				   
+				 
+void setStudentDetails(int rollNo,String name) 
+{
+
+-----
+-----
+
+}
+				 
+void setStudentDetails(String name,int rollNo) 
+{
+
+-----
+-----
+
+}
+					 
+
+????????????????????????????????????????????????
+Assignment - 3
+????????????????????????????????????????????????
+Create a Class Aadhar 
+and use method overloading to generate aadhar number 
+for different type of inputs 
+ 
+e.g of aadhar 
+
+1234 5689 4789
+
+hint : 
+
+		System.out.println((int)(Math.random()*10000)+" "+
+				(int)(Math.random()*10000)+" "+
+				(int)(Math.random()*10000));
+
+
+and send screenshot to below email id 
+flmtechteam.testing@gmail.com
+??????????????????????????????????????????????????		
+
+----------------------------------
+Constructor
+----------------------------------
+
+is a method having same name as class name 
+
+
+rules and regulations :
+
+-> must match with name of class 
+-> constructor can take arguments but doesn't have return type 
+-> constructors shouldn't have modifiers 
+->   access-specifiers    public or protected 
+                          private or default (not prefered)
+-> manual calling of constructor is not possible 
+
+ 
+--------------------------------------------------
+Day 14: 26th July  - Friday   
+--------------------------------------------------									
+
+Constructor overloading:
+
+same constructor name with different signatures in same class 
+
+--------------------------------
+Inheritance (reusability)
+--------------------------------
+
+-> Is-a relationship
+-> reusability 
+-> extends 
+
+ 
+--------------------------------------------------
+Day 15: 28th July  - Monday   
+--------------------------------------------------	
+
+Method Overriding : 
+
+same method names with same signature in different classes having relationship (inheritance)
+
+hint: 
+
+Method signature: method name + parameters list 
+
+IN method overloading : Method signature is not same 
+
+In method overriding : Method signature is same 
+
+--------------------------------------------------
+Day 15: 28th July  - Monday   
+--------------------------------------------------	
+
+when child varible/method/constructor is same as parent  class varible/method/constructor
+if we want to refer parent variable in child class then we use super 
+
+======================================
+Abstraction
+======================================
+
+it shows the idea and hide implementation details 
+
+									Abstraction
+									
+									
+						Abstract class                 Interfaces 
+						(0 to 100 %)					100 % 
+Abstract class:
+
+note : we can't create object for Abstract class  						
+						
+Cannot instantiate the type Numbers						
+
+Interface :
+
+access-specifier modifier interface InterfaceName
+{
+
+//constants or Fields 
+
+
+//abstarct methods 
+
+
+}
+
+different combination :
+
+
+classes can extends Classes 
+
+classes can extends Abstract classes
+
+classes can implement Interfaces 
+
+Interfaces can extends Interface 
+
+
+****************************************
+Java Season - 2
+****************************************
+
+--------------------------------------------------
+Day : 11th August  - Monday   
+--------------------------------------------------	
+
+Special symbol/s and it performs particular action 
+
+
+							operators
+							
+							
+							
+			Unary				Binary				Ternary
+			
+			
+			
+Unary Operators : 
+
+++			--	
+
+
+operand : a variable or value 
+
+Increment 	Decrement		
+
+
+								pre 					post
+								
+								
+				++				--					++				--	
+
+			Increment			Decrement			Increment		Decrement
+			
+a			a=a+1				a=a-1				a=a+1			a=a-1 
+			
+
+pre-Increment
+
+++var ==> evaluation or Increases the value first , then it returns 
+
+----------------------------------------------------
+Binary : applies for two operands 
+
+two operands with one operator in between
+
+----------------------------------
+Arithmetic operators (5)
+
++ - * /  % 
+
+-------------------------------------
+Relational operators (6)
+-> comparision between two variables or values
+always output is boolean (true or false)
+
+
+>  <  >= <=  ==  !=
+
+-----------------------------------------
+
+Logical operators (b/w two comparisions)
+
+&&  ||  ! 
+
+And  	
+
+------------------------------------------
+Bitwise operators(7)
+ 
+ & Bitwise AND
+ | Bitwise OR
+ ^ Bitwise XOR
+ ~ Bitwise compliment
+ << Bitwise Left Shift
+ >> Bitwise right shift
+ >>> unary right shift 
+ 
+ 
+
+--------------------------------------------------
+Day : 12th August  - Tuesday   
+--------------------------------------------------	
+
+Assignment operators 
+
+= += -= /= %= >>=  <<= (short hand operators)
+
+
+int x=10;
+int y=20;
+
+x=y;
+
+x+=10; ==> x=x+10;
+
+----------------------------------------
+Ternary operator
+or
+Conditional Operator
+or
+decision making operator
+
+syntax : 
+
+? : 
+
+expr1 ?  expr2 : expr3 ;
+
+comparision True  False 
+
+***************************************
+Control flow or flow control statements 
+****************************************
+
+
+			              flow control statements 
+						  
+						  
+		decision making					iterative/looping 				jump/transfer 
+
+		- if else 						-for 							 - break 
+		- switch                        -while							 - continue 
+										-do while 						 - return 
+																		 - try catch finally 
+										-for each or Enchanced for loop (this will be discussed after arrays and collections)
+										
+if else : 
+
+if(condition) //condition should give you true or false ==> boolean / relational operators / logical operators 
+{
+instructions or statements;
+}
+else
+{
+instructions or statements;
+}										
+
+salary             Non-IT			IT 
+
+<=10000				10%				20%
+>10000  <=20000     20%				30%
+>20000  <=30000     30%				40%
+>30000              40%				50%
+
+
+------------------------------
+Switch Case :
+
+syntax :
+
+int/short/byte/char/String 
+switch(expression/value/variable)
+{
+
+case value1: //code to executed 
+             break;
+
+case value2 : //code to executed 
+             break;
+
+default: //code for non-matching
+
+}
+
+????????????????????????????????????????????????
+Assignment - 4
+????????????????????????????????????????????????
+Create a Class BrowserLaunch 
+give options to select the browser 
+1. chrome
+2. firefox
+3. edge 
+
+use switch case launch browser as per choice  
+
+i.e if you can String as chrome then chrome browser should launch 
+
+flmtechteam.testing@gmail.com
+?????????????????????????????????????????????????????
+
+
+--------------------------------------------------
+Day : 14th August  - Wednesday   
+--------------------------------------------------	
+
+Iterative or Looping statements 
+
+---------------------------
+for loop 
+
+why/when do we go for "for" loop ?
+
+Ans : if you know how many times you need to iterate the go for "for" loop
+
+syntax : 
+                    boolean
+for(intitalization;condition check;increment)
+{
+
+statements 
+}
+
+---------------------------
+while loop 
+
+
+
+why/when do we go for "while" loop ?
+
+Ans : if you are not sure how many times you need to iterate the go for "while" looping
+syntax :
+
+      boolean 
+while(condition)
+{
+
+//statements 
+
+
+}
+
+--------------------------
+do while 
+
+syntax 
+do
+{
+//statements 
+}while(condition);
+
+santosh  
+
+8985348431
+
+--------------------------------------------------
+Day : 18th August  - Monday   
+--------------------------------------------------	
+Jump statements 
+
+break and continue : 
+
+break : statement 
+
+-> immediately exits the loop(for/while/do while/for each /switch)
+
+-> this will break the current and further iteration 
+
+continue : 
+-> continue will skip the particular iteration 
+
+-> skips the current iteration and continues with next iteration of the loop 
+
+Note : The loop (for/while/do while/for each /switch) does not end, just it skips the cycle 
+
+---------------------------------------------------
+Arrays 
+---------------------------------------------------
+
+array is a collection of homogenous datatypes having fixed length 
+
+syntax : 
+
+same like variable 
+
+for variable :
+
+access-specifier access-modifier data-type variableName = value ;
+
+for Array : 
+
+method 1 :
+
+access-specifier access-modifier data-type[] arrayName={value1,value2...valuen};
+
+
+length : which give no of elements in an array
+
+
+method 2: using new operator
+
+access-specifier access-modifier data-type[] arrayName=new data-type[length of array];
+
+--------------------------------------------------
+Day 29: 19th August  - Tuesday    
+--------------------------------------------------	
+
+Limitation of arrays :
+
+1. arrays store only homogenous datatypes
+
+Type mismatch: cannot convert from double to int
+
+2. arrays's doesn't have growable nature 
+
+java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+	
+3. no predefined methods or logics or data structures for arrays 
+
+you need to implements by urself 
+
+e.g for searching some element , removing some element etc ..
+
+
+--------------------------------------------------
+Day 30: 19th August  - Tuesday    
+--------------------------------------------------	
+
+
+-------------------------------------
+collections in Java
+-------------------------------------
+
+collections in Java is nothing but API 
+
+(packages --> classes and Interfaces --> methods , abstarct methods etc ..) 
+
+Iterable(I)
+
+iterator():Iterator<T> 
+
+------------------
+Collection(I):
+
+add(E):boolean --> to add an Element or Object if any datatype to collection 
+
+addAll(Collection<? extends E>):boolean 
+
+clear():void 
+
+contains(Object):boolean --> used for search operations 
+
+isEmpty():boolean --> it will return true if there are no elements in collections
+
+remove(Object):boolean --> it will remove the object from collection 
+
+size():int --> it will return no of elements present in a collection at that time 
+
+-----------------------
+List (I) : 
+
+add(int, E):void 
+
+get(int):E 
+here int means the index of element , E means the element or object present at specified index
+
+
+indexOf(Object):int 
+
+-----------------------------
+
+ArrayList(C) : 
+
+ArrayList()
+ArrayList(int)
+ArrayList(Collection<? extends E>)
+
+
+al.get(1)
+al.get(3)
+al.get(5)
+al.get(7) 
+al.get(9)
+ela iste size is  5 or  size is 10
+
+
+--------------------------------------------------
+Day 31: 21st August  - Thursday    
+--------------------------------------------------	
+
+
+
+Set(I): 
+
+avoids duplicates 
+
+HashSet(C): 
+
+internal data structure that HashSet follow is HashMap 
+
+Hashing mechanism 
+
+HashSet()  ==> capacity 16 , loading factor 75 % i.e 0.75) 
+HashSet(int)
+HashSet(int, float) ==> float here means it's a loading factor ( default 0.75 ==> 75 % )
+HashSet(int, float, boolean)
+HashSet(Collection<? extends E>)
+
+HashSet is an unordered collection 
+
+For Each loop or Enchanced for loop :
+
+mainly used for Arrays and Collections 
+
+normal for loop 
+syntax : 
+                    boolean
+for(intitalization;condition check;increment)
+{
+
+statements 
+}
+
+for each loop 
+for(DataType someName:arryName/CollectionName)
+{
+//statements which use someName 
+}
+
+Iterator(I):
+
+hasNext():
+next():
+
+sir e roju interview avindhe valu oka task icharu sir automation code ramanru oka form ke
+ https://demoqa.com/automation-practice-form 
+ e form lo select picture undi nenu ala manage chyale sir picture ke code rayatam possible avadhu kada
+
+
+--------------------------------------------------
+Day 32: 22nd August  - Friday     
+--------------------------------------------------	
+
+Exception Handling 
+
+
+
+try catch finally throw throws 
+
+Error : any incorrect human ation that produes wrong results 
+
+compilation error : 
+
+who find this error ? compiler 
+when ? during compilation
+who should rectify ? programmer / developer 
+
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at exceptions.ExceptionDemo1.main(ExceptionDemo1.java:11)
+
+
+Runtime Error or Exception :
+
+who find this error ?  jvm 
+when ? during runtime 
+who should rectify ? programmer / developer 
+
+how to fix ? 
+try catch finally throw throws 
+
+try -> block {}
+
+try contains the risky code (code which may give error )
+
+try
+{
+//risky code 
+}
+
+catch -> block with parameter 
+catch(parameter)
+{
+// exception handling or user friendly message 
+}
+
+root class in Exception hiererchy is Throwable(C)
+
+Throwable(C) 
+
+getMessage():String -> here String is message of exception (basically the string after : )
+
+printStackTrace():void -> this will print Exception details (message and stack info etc )
+
+toString(): String  -> this will give where Exception class is (means which package) and exception message 
+
+Exception (C) extends Throwable(C) : 
+
+Exception Classification : 
+
+one type of classification 
+
+Checked Exceptions and UnCheckedExceptions 
+
+Checked Exceptions: Exceptions which are checked by compiler 
+
+Unhandled exception type InterruptedException
+
+Unhandled exception type FileNotFoundException
+
+UnCheckedExceptions : which compiler can't find during compilation and those found by JVM during 
+execution or runtime 
+
+e.g ArithmeticException
+
+InvalidArgumentException 
+
+--------------------------------------------------
+Day 33: 23rd August  - Saturday     
+--------------------------------------------------	
+
+Patterns 
+
+how to solve or approach 
+
+1) find no of lines or no of rows 
+  = no of times outer for loop will run 
+2) identify for every row no 
+    -> how many columns are there 
+	-> type of elements in column (e.g * or 1 2 etc )
+	
+3) inner for loop : what to print 	
+
+1.  *****
+    *****
+    *****
+    *****
+    *****
+	
+
+????????????????????????????????????????????????
+Assignment - 5
+????????????????????????????????????????????????
+Create a Class Patterns  
+and write methods to print the pattern from pattens.txt  file 
+(pattern no 5 to 11)
+from github 
+https://github.com/flm2ndjune/javaseasons/blob/master/patterns.txt
+
+flmtechteam.testing@gmail.com
+?????????????????????????????????????????????????????
+
+---------------------------------------------------
+Search Techniques
+---------------------------------------------------
+
+int[] arr={18,12,19,77,-1,29,50};
+
+Linear  / sequential Search : 
+
+here 77 is the target 
+
+
+----------------------------------------
+Binary Search 
+----------------------------------------
+
+int[] arr = {-18,-12,-15,16,18,22,45,89};
+
+
+target 16 
+
+1. find the middle element 
+ 
+ middle  = start + end 
+           ------------- = 0 + 7 / 2 = 3 
+		      2 
+
+
+2. check : 
+
+if target > middle ==> search in right 
+else => search in left array 
+if target ==middle ==> we found element 
+
+--------------------------------------------------
+Day 34: 25th August  - Monday     
+--------------------------------------------------	
+
+combinations of try catch finally 
+
+only try -> Invalid 
+try-catch 
+try-finally 
+try-catch-finally 
+try-catch-catch-..
+try-catch-catch-..-finally 
+
+catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+			System.out.println("generic exception found ..");
+		}
+Q: when you have multiple catches under try block can we declare them as we wish
+Ans : No 
+
+we need to follow hiererchy (bottom to top) 
+
+--------------
+finally is a block
+can be follwed after try 
+or try catch 
+
+This block of code will be executed irrespective of exception 
+--------------------------------------------------------------------------
+
+Throws - Its a keyword to be used at method signature
+
+this is used to convience compiler (used only for checked exception)
+
+--------------------------------------------------------------------------
+throw : basically to throw a custome exception 
+
+????????????????????????????????????????????????
+Assignment - 6
+????????????????????????????????????????????????
+Create a Custom exception InsufficientBalanceException 
+Scenarion : 
+In BankApp , throw above exception in withdraw method 
+if the business is met 
+rule : if the withdraw amount is greater than balance   
+
+flmtechteam.testing@gmail.com
+?????????????????????????????????????????????????????
+
+
+--------------------------------------------------
+Day 38: 30th August  - Saturday     
+--------------------------------------------------	
+
+Sorting techniques : 
+
+Bubble sort 
+
+[3,1,5,4,2]
+
+
+Selection sort 
+here we select maximum value or element and 
+put it in right index 
+
+[3,1,5,4,2]
+
+--------------------------------------------------
+Day 49 : 13th September  - Saturday
+--------------------------------------------------
+
+1. Find largest Element in array
+
+int[] arr={10,25,3,45,99,7};
+
+2. Find Smallest Element in array
+
+3. Find second largest Element in array
+
+4. Find index of largest Element in array
+
+5. Find missing number in a Array (1 to n) 
+
+6. Find the frequency of each Element in an array without using collections 
+
+
+??????????????????????????????????????????
+Assignment 
+
+i). Find second Smallest Element in array
